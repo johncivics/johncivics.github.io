@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>You're on the list — Subito</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://framerusercontent.com/images/5Kycq2w5LZI0YKEdCpCg9dAQc.png" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BMY114622C"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BMY114622C');
+  </script>
+
+  <style>
+    /* =============================================
+       TOKENS
+    ============================================= */
+    :root {
+      --bg: #0F0F14;
+      --surface: #1A1A24;
+      --border: #2A2A3A;
+      --violet: #7B2FFF;
+      --violet-l: #A96FFF;
+      --text: #F0F0F8;
+      --muted: #A0A0B8;
+      --faint: #3A3A50;
+      --success: #22C55E;
+      --error: #EF4444;
+    }
+
+    /* =============================================
+       GLOBAL
+    ============================================= */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* =============================================
+       NAV
+    ============================================= */
+    #nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 64px;
+      z-index: 100;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      background: transparent;
+      border-bottom: 1px solid rgba(123,47,255,0.15);
+      transition: background 0.3s ease, border-color 0.3s ease;
+    }
+    #nav.scrolled {
+      background: rgba(15, 15, 20, 0.9);
+      border-bottom-color: var(--border);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+      padding: 0 40px;
+    }
+    .nav-logo {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text);
+      text-decoration: none;
+      text-shadow: 0 0 20px rgba(123,47,255,0.4);
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      background: var(--violet);
+      color: #fff;
+      border: none;
+      border-radius: 100px;
+      padding: 10px 22px;
+      font-size: 14px;
+      font-weight: 500;
+      font-family: inherit;
+      text-decoration: none;
+      cursor: pointer;
+      transition: opacity 0.2s ease;
+    }
+    .btn-primary:hover {
+      opacity: 0.85;
+    }
+
+    /* =============================================
+       MAIN CONTENT
+    ============================================= */
+    .thanks-wrap {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 100px 24px 80px;
+    }
+    .thanks-wrap h1 {
+      font-size: clamp(36px, 6vw, 64px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      text-align: center;
+    }
+    .thanks-sub {
+      font-size: 18px;
+      color: var(--muted);
+      text-align: center;
+      max-width: 440px;
+      margin: 16px auto 0;
+      line-height: 1.6;
+    }
+
+    /* =============================================
+       FOOTER
+    ============================================= */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 40px;
+    }
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-logo {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .footer-copy {
+      font-size: 13px;
+      color: var(--faint);
+    }
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+    .footer-links a {
+      font-size: 13px;
+      color: var(--faint);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .footer-links a:hover {
+      color: var(--muted);
+    }
+
+    /* =============================================
+       MOBILE
+    ============================================= */
+    @media (max-width: 640px) {
+      .nav-inner {
+        padding: 0 20px;
+      }
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+      .footer-links {
+        justify-content: center;
+      }
+      .share-row {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SECTION: Nav -->
+  <nav id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Subito</a>
+      <a href="index.html" class="btn-primary">Home</a>
+    </div>
+  </nav>
+
+  <!-- SECTION: Thank you content -->
+  <main class="thanks-wrap">
+
+    <!-- App icon -->
+    <img
+      src="https://framerusercontent.com/images/5Kycq2w5LZI0YKEdCpCg9dAQc.png"
+      alt="Subito"
+      style="width:72px;height:72px;border-radius:18px;margin-bottom:32px;"
+    >
+
+    <!-- Headline -->
+    <h1>You're on the waitlist 🎉</h1>
+
+    <!-- Subtext -->
+    <p class="thanks-sub">
+      You've successfully secured your spot.
+      Tell a fellow musician — the more the merrier.
+    </p>
+
+    <!-- Copy link box -->
+    <div style="
+      display:flex;
+      align-items:center;
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:100px;
+      padding:14px 20px;
+      gap:12px;
+      margin:40px auto 0;
+      max-width:460px;
+      width:100%;
+      justify-content:space-between;
+    ">
+      <span onclick="document.querySelector('.copy-btn').click()" style="cursor:pointer;display:flex;align-items:center;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;color:var(--muted);">
+          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+        </svg>
+      </span>
+      <span style="color:var(--text);font-size:16px;font-weight:500;letter-spacing:-0.01em;flex:1;text-align:center;">
+        https://subitoapp.ca/waitlist/
+      </span>
+      <button
+        id="copy-btn"
+        class="copy-btn"
+        onclick="
+          navigator.clipboard.writeText('https://subitoapp.ca').then(() => {
+            this.textContent = 'Copied!';
+            this.style.background = '#22C55E';
+            setTimeout(() => {
+              this.textContent = 'Copy link';
+              this.style.background = 'var(--violet)';
+            }, 2000);
+          }).catch(() => {
+            this.textContent = 'Copy link';
+          });
+        "
+        style="
+          background:var(--violet);
+          color:white;
+          border:none;
+          border-radius:100px;
+          padding:8px 18px;
+          font-size:13px;
+          font-weight:600;
+          cursor:pointer;
+          font-family:inherit;
+          flex-shrink:0;
+          transition:background 0.2s ease;
+        "
+      >Copy link</button>
+    </div>
+
+    <!-- Or share divider -->
+    <div style="display:flex;align-items:center;gap:16px;color:var(--muted);font-size:13px;margin-top:32px;max-width:420px;width:100%;">
+      <div style="height:1px;flex:1;background:var(--border);"></div>
+      Or share
+      <div style="height:1px;flex:1;background:var(--border);"></div>
+    </div>
+
+    <!-- Share buttons -->
+    <div class="share-row" style="display:flex;justify-content:center;margin-top:24px;">
+      <a
+        href="https://x.com/intent/tweet?text=Just+joined+the+waitlist+for+Subito+%E2%80%94+a+practice+tracker+for+musicians.+Check+it+out%3A+https%3A%2F%2Fsubitoapp.ca"
+        target="_blank"
+        style="display:flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--border);border-radius:100px;padding:14px 28px;color:var(--text);text-decoration:none;font-size:16px;font-weight:600;"
+      ><span style="font-size:18px;">𝕏</span> Share on X</a>
+    </div>
+
+    <!-- Back to home -->
+    <a href="index.html" style="font-size:13px;color:var(--muted);text-decoration:none;margin-top:40px;">
+      ← Back to home
+    </a>
+
+  </main>
+
+  <!-- SECTION: Footer -->
+  <footer>
+    <div class="footer-inner">
+      <a href="index.html" class="footer-logo">Subito</a>
+      <p class="footer-copy">&copy; 2026 Subito</p>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+        <a href="mailto:support@subitoapp.ca">support@subitoapp.ca</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+
+  </script>
+
+</body>
+</html>
