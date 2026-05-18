@@ -620,26 +620,6 @@
       #hero h1 { font-size: 36px; letter-spacing: -0.02em; }
       .hero-sub { font-size: 16px; }
 
-      /* FORM — stack vertically on mobile */
-      #hero > div > div[style*="inline-flex"] {
-        flex-direction: column;
-        border-radius: 16px;
-        padding: 16px;
-        width: 100%;
-        max-width: 340px;
-        align-items: stretch;
-      }
-      #hero input[type="email"],
-      #cta-email {
-        width: 100% !important;
-        text-align: center;
-      }
-      #hero-btn, #cta-btn {
-        width: 100%;
-        text-align: center;
-        margin-top: 8px;
-      }
-
       /* PHONE — full width, no floating cards on mobile */
       #hero .phone-wrapper,
       #hero > div[style*="position:relative"] {
@@ -671,32 +651,44 @@
         gap: 16px;
       }
 
-      /* Form pill — break into stacked layout on mobile */
+      /* Form container — two separate pills stacked */
       div[style*="display:inline-flex"][style*="background:#ffffff"],
       div[style*="display:inline-flex"][style*="background: #ffffff"] {
         flex-direction: column !important;
-        border-radius: 16px !important;
-        padding: 12px !important;
+        background: transparent !important;
+        border-radius: 0 !important;
+        padding: 0 !important;
+        gap: 10px !important;
         width: calc(100% - 40px) !important;
         max-width: 340px !important;
-        align-items: stretch !important;
+        box-shadow: none !important;
+        border: none !important;
       }
 
-      /* Email input full width on mobile */
+      /* Email input — its own white pill */
       div[style*="display:inline-flex"] input[type="email"] {
         width: 100% !important;
+        background: #ffffff !important;
+        border-radius: 100px !important;
+        padding: 16px 24px !important;
+        font-size: 16px !important;
+        color: #111111 !important;
+        border: none !important;
+        outline: none !important;
         text-align: left !important;
-        padding: 12px 16px !important;
-        border-bottom: 1px solid #e0e0e0 !important;
-        border-radius: 8px 8px 0 0 !important;
       }
 
-      /* Button full width and separated on mobile */
+      /* Button — its own purple pill */
       div[style*="display:inline-flex"] button {
         width: 100% !important;
-        border-radius: 10px !important;
-        padding: 14px !important;
-        margin-top: 8px !important;
+        background: var(--violet) !important;
+        border-radius: 100px !important;
+        padding: 16px 24px !important;
+        font-size: 16px !important;
+        font-weight: 600 !important;
+        color: #ffffff !important;
+        border: none !important;
+        margin-top: 0 !important;
         text-align: center !important;
       }
     }
