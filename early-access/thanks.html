@@ -201,7 +201,6 @@
   <nav id="nav">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">Subito</a>
-      <a href="index.html" class="btn-primary">Home</a>
     </div>
   </nav>
 
@@ -216,12 +215,11 @@
     >
 
     <!-- Headline -->
-    <h1>You're on the waitlist 🎉</h1>
+    <h1>You're in for early access 🎉</h1>
 
     <!-- Subtext -->
     <p class="thanks-sub">
-      You've successfully secured your spot.
-      Tell a fellow musician — the more the merrier.
+      You're in. We'll reach out when we launch.
     </p>
 
     <!-- Copy link box -->
@@ -245,13 +243,13 @@
         </svg>
       </span>
       <span style="color:var(--text);font-size:16px;font-weight:500;letter-spacing:-0.01em;flex:1;text-align:center;">
-        https://subitoapp.ca/waitlist/
+        https://subitoapp.ca/early-access
       </span>
       <button
         id="copy-btn"
         class="copy-btn"
         onclick="
-          navigator.clipboard.writeText('https://subitoapp.ca').then(() => {
+          navigator.clipboard.writeText('https://subitoapp.ca/early-access').then(() => {
             this.textContent = 'Copied!';
             this.style.background = '#22C55E';
             setTimeout(() => {
@@ -305,10 +303,9 @@
   <footer>
     <div class="footer-inner">
       <a href="index.html" class="footer-logo">Subito</a>
-      <p class="footer-copy">&copy; 2026 Subito</p>
       <nav class="footer-links" aria-label="Footer navigation">
-        <a href="/privacy">Privacy</a>
-        <a href="/terms">Terms</a>
+        <a href="assets/privacy.txt" download>Privacy</a>
+        <a href="assets/terms.txt" download>Terms</a>
         <a href="mailto:support@subitoapp.ca">support@subitoapp.ca</a>
       </nav>
     </div>

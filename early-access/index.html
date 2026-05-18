@@ -122,7 +122,7 @@
       justify-content: flex-start;
       text-align: center;
       padding: 120px 24px 80px;
-      overflow: hidden;
+      overflow: visible;
     }
     .hero-glow {
       display: none;
@@ -325,26 +325,37 @@
        FAQ
     ============================================= */
     #faq {
-      padding: 120px 24px;
+      padding: 100px 24px;
+      background: #0A0A0A;
     }
     .faq-inner {
-      max-width: 720px;
+      max-width: 780px;
       margin: 0 auto;
     }
-    .faq-inner > h2 {
-      font-size: clamp(32px, 5vw, 48px);
+    .faq-inner h2 {
+      font-size: 56px;
       font-weight: 700;
       letter-spacing: -0.02em;
-      margin-bottom: 48px;
+      margin-bottom: 8px;
+      color: #FFFFFF;
+    }
+    .faq-subtitle {
+      font-size: 17px;
+      color: #FFFFFF;
+      margin-bottom: 40px;
+      font-weight: 400;
     }
     .faq-item {
-      border-bottom: 1px solid var(--border);
-      transition: border-left-color 0.3s ease, padding-left 0.3s ease, margin-left 0.3s ease;
+      border-bottom: none;
+      background: #262424;
+      border-radius: 10px;
+      padding: 0 20px;
+      margin-bottom: 8px;
     }
     .faq-item.open {
-      border-left: 2px solid var(--violet);
-      padding-left: 16px;
-      margin-left: -18px;
+      border-left: none;
+      padding-left: 20px;
+      margin-left: 0;
     }
     .faq-question {
       display: flex;
@@ -353,54 +364,47 @@
       gap: 16px;
       width: 100%;
       border: none;
-      background: var(--bg);
-      color: var(--text);
-      font-size: 17px;
+      background: transparent;
+      color: #FFFFFF;
+      font-size: 18px;
       font-weight: 500;
       font-family: inherit;
       text-align: left;
-      padding: 24px 0;
+      padding: 20px 0;
       cursor: pointer;
-      transition: color 0.2s ease;
     }
-    .faq-question:hover {
-      color: var(--violet-l);
-    }
+    .faq-question:hover { color: #FFFFFF; }
+    .faq-item.open .faq-question { color: #FFFFFF; }
     .faq-icon {
-      width: 24px;
-      height: 24px;
-      border: 1px solid var(--border);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      line-height: 1;
+      width: auto;
+      height: auto;
+      border: none;
+      border-radius: 0;
+      font-size: 22px;
+      font-weight: 300;
+      color: #FFFFFF;
       flex-shrink: 0;
-      transition: transform 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+      transition: none;
     }
     .faq-item.open .faq-icon {
-      transform: rotate(45deg);
-      border-color: var(--violet);
-      color: var(--violet-l);
-    }
-    .faq-item.open .faq-question {
-      color: var(--violet-l);
+      transform: none;
+      border-color: transparent;
+      color: #FFFFFF;
     }
     .faq-answer {
       max-height: 0;
       overflow: hidden;
-      transition: max-height 0.35s ease;
+      transition: max-height 0.25s ease-out;
     }
     .faq-item.open .faq-answer {
-      max-height: 200px;
+      max-height: 300px;
     }
     .faq-answer p {
-      color: var(--muted);
-      font-size: 15px;
-      font-weight: 300;
+      color: #FFFFFF;
+      font-size: 16px;
+      font-weight: 400;
       line-height: 1.65;
-      padding-bottom: 24px;
+      padding-bottom: 20px;
     }
 
     /* =============================================
@@ -613,12 +617,22 @@
   <nav id="nav">
     <div class="nav-inner">
       <a href="/" class="nav-logo">Subito</a>
-      <a href="#waitlist" class="btn-primary">Join waitlist</a>
     </div>
   </nav>
 
   <!-- SECTION: Hero -->
   <section id="hero">
+    <img src="assets/gradient-black1.webp" style="
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      z-index:0;
+      pointer-events:none;
+      opacity:0.5;
+    ">
     <div class="hero-glow"></div>
     <div class="hero-inner">
       <div style="display:flex;justify-content:center;margin-bottom:32px;">
@@ -678,41 +692,80 @@
               font-family:inherit;
               flex-shrink:0;
             "
-          >Join waitlist</button>
+          >Get early access</button>
         </div>
         <p id="hero-msg" style="display:none;font-size:14px;margin-top:12px;text-align:center;"></p>
       </div>
-      <div style="width:100%;margin:56px 0 0;position:relative;overflow:visible;padding:0 60px;">
-        <div style="position:absolute;bottom:0;left:0;right:0;height:250px;background:linear-gradient(to bottom,transparent,#0F0F14);pointer-events:none;z-index:1;"></div>
-        <img
-          src="https://framerusercontent.com/images/OF6yHWbo3brUnpEaHHtvAEbxCQ.png"
-          alt="Subito app"
-          style="width:100%;max-width:900px;display:block;margin:0 auto;"
-        >
-      </div>
-      <img
-        src="https://framerusercontent.com/images/OF6yHWbo3brUnpEaHHtvAEbxCQ.png"
-        alt="Subito app screenshot"
-        class="app-screenshot"
-      />
+      <div style="width:100%;margin:48px 0 0;position:relative;overflow:visible;">
+
+  <!-- Layer 1: purple glow — sits behind everything -->
+  <img src="assets/gradient-purple.webp" style="
+    position:absolute;
+    top:-200px;
+    left:50%;
+    transform:translateX(-50%);
+    width:220%;
+    max-width:1600px;
+    z-index:0;
+    pointer-events:none;
+    opacity:1;
+  ">
+
+  <!-- Layer 2: phone — sits above purple -->
+  <img src="assets/phone.webp" alt="Subito app" style="
+    width:100%;
+    display:block;
+    position:relative;
+    z-index:1;
+  ">
+
+  <!-- Layer 3: floating cards — sit above phone -->
+  <img src="assets/time_pb.webp" style="
+    position:absolute;
+    top:22%;
+    right:calc(50% - 400px);
+    width:360px;
+    z-index:2;
+    pointer-events:none;
+    filter:drop-shadow(0 8px 24px rgba(0,0,0,0.5));
+    animation:float 3s ease-in-out infinite;
+  ">
+  <img src="assets/time.webp" style="
+    position:absolute;
+    bottom:25%;
+    left:calc(50% - 380px);
+    width:260px;
+    z-index:2;
+    pointer-events:none;
+    filter:drop-shadow(0 8px 24px rgba(0,0,0,0.5));
+    animation:float 3.5s ease-in-out infinite;
+    animation-delay:0.7s;
+  ">
+
+  <!-- Layer 4: black fade at bottom — only fades the very bottom edge -->
+  <div style="
+    position:absolute;
+    bottom:0;
+    left:0;
+    right:0;
+    height:180px;
+    background:linear-gradient(to bottom, transparent, #0F0F14);
+    z-index:3;
+    pointer-events:none;
+  "></div>
+
+</div>
     </div>
   </section>
 
   <div style="width:100%;height:1px;background:linear-gradient(to right,transparent,rgba(123,47,255,0.5),rgba(169,111,255,0.3),transparent);margin:0;"></div>
 
-  <!-- SECTION: Features -->
-  <section id="features">
-    <div class="features-inner">
-      <h2 class="features-title reveal">Built for how musicians actually practice</h2>
-      <div style="width:64px;height:2px;background:linear-gradient(to right,var(--violet),var(--violet-l));border-radius:2px;margin:24px 0 0;opacity:0.7;"></div>
-    </div>
-  </section>
-
   <!-- SECTION: FAQ -->
   <section id="faq" style="position:relative;">
     <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:400px;background:radial-gradient(ellipse,rgba(123,47,255,0.08) 0%,transparent 70%);pointer-events:none;z-index:0;"></div>
     <div class="faq-inner" style="position:relative;z-index:1;">
-      <h2 class="reveal">Frequently asked questions</h2>
+      <h2 class="reveal">Questions</h2>
+      <p class="faq-subtitle">Everything you need to know before you sign up.</p>
       <div class="faq-list">
 
         <div class="faq-item reveal">
@@ -776,7 +829,7 @@
           </button>
           <div class="faq-answer">
             <p>
-              iOS launches first. Android follows shortly after. Join the waitlist
+              iOS launches first. Android follows shortly after. Get early access
               and we'll let you know as soon as your platform is ready.
             </p>
           </div>
@@ -786,61 +839,6 @@
     </div>
   </section>
 
-  <!-- SECTION: Bottom CTA -->
-  <section id="waitlist">
-    <div class="cta-inner reveal">
-      <h2>Ready to practice with purpose?</h2>
-      <p>Join musicians already on the waitlist. Free to sign up.</p>
-      <div style="display:flex;flex-direction:column;align-items:center;">
-        <div style="
-          display:inline-flex;
-          align-items:center;
-          background:#ffffff;
-          border-radius:100px;
-          padding:6px 6px 6px 20px;
-          margin-top:36px;
-          gap:0;
-          box-shadow:0 4px 24px rgba(0,0,0,0.3);
-        ">
-          <input
-            id="cta-email"
-            type="email"
-            placeholder="Your email address"
-            autocomplete="email"
-            class="waitlist-input"
-            style="
-              background:transparent;
-              border:none;
-              outline:none;
-              font-size:15px;
-              color:#111111;
-              width:240px;
-              font-family:inherit;
-            "
-          >
-          <button
-            id="cta-btn"
-            class="waitlist-btn"
-            onclick="submitWaitlist('cta-email','cta-btn','cta-msg')"
-            style="
-              background:var(--violet);
-              color:white;
-              border:none;
-              border-radius:100px;
-              padding:14px 24px;
-              font-size:15px;
-              font-weight:600;
-              cursor:pointer;
-              white-space:nowrap;
-              font-family:inherit;
-              flex-shrink:0;
-            "
-          >Join waitlist</button>
-        </div>
-        <p id="cta-msg" style="display:none;font-size:14px;margin-top:12px;text-align:center;"></p>
-      </div>
-    </div>
-  </section>
 
   <div style="width:100%;height:1px;background:linear-gradient(to right,transparent,rgba(123,47,255,0.3),transparent);"></div>
 
@@ -848,10 +846,9 @@
   <footer>
     <div class="footer-inner">
       <a href="/" class="footer-logo">Subito</a>
-      <p class="footer-copy">&copy; 2026 Subito</p>
       <nav class="footer-links" aria-label="Footer navigation">
-        <a href="/privacy">Privacy</a>
-        <a href="/terms">Terms</a>
+        <a href="/privacy.txt" download>Privacy</a>
+        <a href="/terms.txt" download>Terms</a>
         <a href="mailto:support@subitoapp.ca">support@subitoapp.ca</a>
       </nav>
     </div>
@@ -879,8 +876,14 @@
     function toggleFaq(btn) {
       const item = btn.closest('.faq-item');
       const isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
-      if (!isOpen) item.classList.add('open');
+      document.querySelectorAll('.faq-item.open').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.faq-icon').textContent = '+';
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        btn.querySelector('.faq-icon').textContent = '×';
+      }
     }
 
     // 4. WAITLIST FORM SUBMISSION
@@ -905,11 +908,10 @@
       btn.textContent = '...';
 
       try {
-        await fetch('https://tally.so/r/eq0LKx', {
+        await fetch('https://johnerw.johnultrakill00.workers.dev/', {
           method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: new URLSearchParams({ email })
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email })
         });
         window.location.href = 'thanks.html';
       } catch {
