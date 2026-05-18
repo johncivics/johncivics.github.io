@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Subito — Practice more. Play better.</title>
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="https://framerusercontent.com/images/5Kycq2w5LZI0YKEdCpCg9dAQc.png" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
 
   <!-- OG Meta Tags -->
   <meta property="og:title" content="Subito — Practice more. Play better." />
@@ -51,7 +52,7 @@
       scroll-behavior: smooth;
     }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-family: 'Figtree', -apple-system, BlinkMacSystemFont, sans-serif;
       background: var(--bg);
       color: var(--text);
       overflow-x: hidden;
@@ -609,6 +610,95 @@
       background: linear-gradient(160deg, #1a1a24 0%, #1e1e2e 100%);
     }
 
+    @media (max-width: 768px) {
+
+      /* NAV */
+      .nav-inner { padding: 0 20px; }
+
+      /* HERO */
+      #hero { padding: 100px 20px 60px; }
+      #hero h1 { font-size: 36px; letter-spacing: -0.02em; }
+      .hero-sub { font-size: 16px; }
+
+      /* FORM — stack vertically on mobile */
+      #hero > div > div[style*="inline-flex"] {
+        flex-direction: column;
+        border-radius: 16px;
+        padding: 16px;
+        width: 100%;
+        max-width: 340px;
+        align-items: stretch;
+      }
+      #hero input[type="email"],
+      #cta-email {
+        width: 100% !important;
+        text-align: center;
+      }
+      #hero-btn, #cta-btn {
+        width: 100%;
+        text-align: center;
+        margin-top: 8px;
+      }
+
+      /* PHONE — full width, no floating cards on mobile */
+      #hero .phone-wrapper,
+      #hero > div[style*="position:relative"] {
+        padding: 0 !important;
+        margin-top: 40px !important;
+      }
+      /* Hide floating cards on mobile — they overflow off screen */
+      #hero img[src*="time_pb"],
+      #hero img[src*="time.webp"] {
+        display: none;
+      }
+
+      /* FAQ */
+      #faq { padding: 60px 16px; }
+      .faq-inner h2 { font-size: 36px; }
+      .faq-question { font-size: 16px; }
+      .faq-answer p { font-size: 15px; }
+
+      /* FOOTER */
+      footer { padding: 24px 20px; }
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+      }
+      .footer-links {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+    }
+
+    /* THANKS PAGE MOBILE */
+    @media (max-width: 768px) {
+      .thanks-wrap { padding: 100px 20px 60px; }
+      .thanks-wrap h1 { font-size: 32px; }
+      .thanks-sub { font-size: 16px; }
+
+      /* Copy link box */
+      .thanks-wrap div[style*="max-width:460px"] {
+        flex-direction: column;
+        border-radius: 16px;
+        padding: 16px;
+        align-items: stretch;
+        text-align: center;
+      }
+      .copy-btn {
+        width: 100%;
+        padding: 12px !important;
+      }
+
+      /* Share button */
+      .share-row { width: 100%; }
+      .share-row a {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -723,8 +813,8 @@
   <img src="assets/time_pb.webp" style="
     position:absolute;
     top:22%;
-    right:calc(50% - 400px);
-    width:360px;
+    right:calc(29% - 400px);
+    width:530px;
     z-index:2;
     pointer-events:none;
     filter:drop-shadow(0 8px 24px rgba(0,0,0,0.5));
@@ -733,8 +823,8 @@
   <img src="assets/time.webp" style="
     position:absolute;
     bottom:25%;
-    left:calc(50% - 380px);
-    width:260px;
+    left:calc(38% - 380px);
+    width:300px;
     z-index:2;
     pointer-events:none;
     filter:drop-shadow(0 8px 24px rgba(0,0,0,0.5));

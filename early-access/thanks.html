@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>You're on the list — Subito</title>
 
@@ -46,7 +47,7 @@
       scroll-behavior: smooth;
     }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-family: 'Figtree', -apple-system, BlinkMacSystemFont, sans-serif;
       background: var(--bg);
       color: var(--text);
       overflow-x: hidden;
@@ -191,6 +192,95 @@
       .share-row {
         flex-direction: column;
         align-items: center;
+      }
+    }
+
+    @media (max-width: 768px) {
+
+      /* NAV */
+      .nav-inner { padding: 0 20px; }
+
+      /* HERO */
+      #hero { padding: 100px 20px 60px; }
+      #hero h1 { font-size: 36px; letter-spacing: -0.02em; }
+      .hero-sub { font-size: 16px; }
+
+      /* FORM — stack vertically on mobile */
+      #hero > div > div[style*="inline-flex"] {
+        flex-direction: column;
+        border-radius: 16px;
+        padding: 16px;
+        width: 100%;
+        max-width: 340px;
+        align-items: stretch;
+      }
+      #hero input[type="email"],
+      #cta-email {
+        width: 100% !important;
+        text-align: center;
+      }
+      #hero-btn, #cta-btn {
+        width: 100%;
+        text-align: center;
+        margin-top: 8px;
+      }
+
+      /* PHONE — full width, no floating cards on mobile */
+      #hero .phone-wrapper,
+      #hero > div[style*="position:relative"] {
+        padding: 0 !important;
+        margin-top: 40px !important;
+      }
+      /* Hide floating cards on mobile — they overflow off screen */
+      #hero img[src*="time_pb"],
+      #hero img[src*="time.webp"] {
+        display: none;
+      }
+
+      /* FAQ */
+      #faq { padding: 60px 16px; }
+      .faq-inner h2 { font-size: 36px; }
+      .faq-question { font-size: 16px; }
+      .faq-answer p { font-size: 15px; }
+
+      /* FOOTER */
+      footer { padding: 24px 20px; }
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+      }
+      .footer-links {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+    }
+
+    /* THANKS PAGE MOBILE */
+    @media (max-width: 768px) {
+      .thanks-wrap { padding: 100px 20px 60px; }
+      .thanks-wrap h1 { font-size: 32px; }
+      .thanks-sub { font-size: 16px; }
+
+      /* Copy link box */
+      .thanks-wrap div[style*="max-width:460px"] {
+        flex-direction: column;
+        border-radius: 16px;
+        padding: 16px;
+        align-items: stretch;
+        text-align: center;
+      }
+      .copy-btn {
+        width: 100%;
+        padding: 12px !important;
+      }
+
+      /* Share button */
+      .share-row { width: 100%; }
+      .share-row a {
+        width: 100%;
+        justify-content: center;
       }
     }
   </style>
