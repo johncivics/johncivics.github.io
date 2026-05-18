@@ -7,7 +7,7 @@
   <title>Subito: Practice more. Play better.</title>
 
   <!-- Favicon -->
-  <link rel="icon" href="assets/Favicon.webp" />
+  <link rel="icon" type="image/png" href="assets/favicon.png?v=2" />
 
   <!-- OG Meta Tags -->
   <meta property="og:title" content="Subito — Practice more. Play better." />
@@ -277,7 +277,7 @@
       background: #0A0A0A;
     }
     .faq-inner {
-      max-width: 780px;
+      max-width: 620px;
       margin: 0 auto;
     }
     .faq-inner h2 {
@@ -334,20 +334,17 @@
       font-weight: 300;
       color: #FFFFFF;
       flex-shrink: 0;
-      transition: none;
+      display: inline-block;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
     .faq-item.open .faq-icon {
-      transform: none;
-      border-color: transparent;
+      transform: rotate(45deg);
       color: #FFFFFF;
     }
     .faq-answer {
-      max-height: 0;
+      height: 0;
       overflow: hidden;
-      transition: max-height 0.25s ease-out;
-    }
-    .faq-item.open .faq-answer {
-      max-height: 300px;
+      transition: height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     }
     .faq-answer p {
       color: #FFFFFF;
@@ -415,12 +412,12 @@
     }
     .footer-links a {
       font-size: 13px;
-      color: var(--faint);
+      color: rgb(150,150,160);
       text-decoration: none;
       transition: color 0.2s ease;
     }
     .footer-links a:hover {
-      color: var(--muted);
+      color: rgb(200,200,210);
     }
 
     /* =============================================
@@ -567,12 +564,22 @@
       #hero .phone-wrapper,
       #hero > div[style*="position:relative"] {
         padding: 0 !important;
-        margin-top: 40px !important;
+        margin-top: 100px !important;
       }
-      /* Hide floating cards on mobile — they overflow off screen */
+      #hero img[src*="phone.webp"] {
+        width: 150% !important;
+        max-width: 150% !important;
+        display: block !important;
+        position: relative !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+      }
+      /* Floating cards — hidden on mobile */
       #hero img[src*="time_pb"],
       #hero img[src*="time.webp"] {
-        display: none;
+        display: none !important;
       }
 
       /* FAQ */
@@ -594,45 +601,75 @@
         gap: 16px;
       }
 
-      /* Form container — two separate pills stacked */
-      div[style*="display:inline-flex"][style*="background:#ffffff"],
-      div[style*="display:inline-flex"][style*="background: #ffffff"] {
+      /* Form — stack vertically, nearly full width */
+      .hero-form-wrap {
+        width: 100% !important;
+        align-items: stretch !important;
+      }
+      .hero-form-pill {
         flex-direction: column !important;
         background: transparent !important;
         border-radius: 0 !important;
         padding: 0 !important;
-        gap: 10px !important;
-        width: calc(100% - 40px) !important;
-        max-width: 340px !important;
+        gap: 12px !important;
+        width: 100% !important;
+        max-width: none !important;
         box-shadow: none !important;
         border: none !important;
       }
 
-      /* Email input — its own white pill */
-      div[style*="display:inline-flex"] input[type="email"] {
+      /* Email input — standalone pill */
+      .hero-form-pill input[type="email"] {
         width: 100% !important;
-        background: #ffffff !important;
+        box-sizing: border-box !important;
+        background: #f0f0f0 !important;
         border-radius: 100px !important;
-        padding: 16px 24px !important;
+        padding: 18px 24px !important;
         font-size: 16px !important;
         color: #111111 !important;
         border: none !important;
         outline: none !important;
-        text-align: left !important;
+        flex: none !important;
       }
 
-      /* Button — its own purple pill */
-      div[style*="display:inline-flex"] button {
+      /* Button — standalone purple pill */
+      .hero-form-pill button {
         width: 100% !important;
+        box-sizing: border-box !important;
         background: var(--violet) !important;
         border-radius: 100px !important;
-        padding: 16px 24px !important;
+        padding: 18px 24px !important;
         font-size: 16px !important;
         font-weight: 600 !important;
         color: #ffffff !important;
         border: none !important;
-        margin-top: 0 !important;
-        text-align: center !important;
+        flex-shrink: 0 !important;
+      }
+    }
+
+    /* =============================================
+       TABLET (769px – 1099px)
+    ============================================= */
+    @media (min-width: 769px) and (max-width: 1099px) {
+      /* Phone — slightly wider so it fills the tablet viewport better */
+      #hero img[src*="phone.webp"] {
+        width: 80% !important;
+      }
+
+      /* time_pb card — anchor to the right side, scale with viewport */
+      #hero img[src*="time_pb"] {
+        width: min(30vw, 300px) !important;
+        right: 2% !important;
+        left: unset !important;
+        top: 20% !important;
+      }
+
+      /* time card — anchor to the left side, scale with viewport */
+      #hero img[src*="time.webp"] {
+        width: min(18vw, 160px) !important;
+        left: 3% !important;
+        right: unset !important;
+        top: 32% !important;
       }
     }
 
@@ -668,7 +705,7 @@
 <body>
 
   <!-- SECTION: Hero -->
-  <section id="hero">
+  <section id="hero" style="position:relative;">
     <img src="assets/gradient-black1.webp" style="
       position:absolute;
       top:0;
@@ -684,9 +721,9 @@
     <div class="hero-inner">
       <div style="display:flex;justify-content:center;margin-bottom:32px;">
         <img
-          src="https://framerusercontent.com/images/5Kycq2w5LZI0YKEdCpCg9dAQc.png"
+          src="assets/logo.png"
           alt="Subito"
-          style="width:80px;height:80px;border-radius:20px;"
+          style="width:80px;height:80px;border-radius:22px;"
         >
       </div>
       <h1 class="reveal">Practice more. Play better.</h1>
@@ -695,15 +732,17 @@
         track your repertoire, and share your progress with friends.
         Coming to iOS and Android.
       </p>
-      <div style="display:flex;flex-direction:column;align-items:center;">
-        <div style="
-          display:inline-flex;
+      <div class="hero-form-wrap" style="display:flex;flex-direction:column;align-items:center;width:100%;">
+        <div class="hero-form-pill" style="
+          display:flex;
           align-items:center;
           background:#ffffff;
           border-radius:100px;
           padding:8px 8px 8px 24px;
           margin-top:36px;
           gap:0;
+          width:480px;
+          max-width:100%;
           box-shadow:0 4px 24px rgba(0,0,0,0.3);
         ">
           <input
@@ -718,7 +757,8 @@
               outline:none;
               font-size:15px;
               color:#111111;
-              width:260px;
+              flex:1;
+              min-width:0;
               font-family:inherit;
             "
           >
@@ -760,8 +800,8 @@
 
   <!-- Layer 2: phone — sits above purple -->
   <img src="assets/phone.webp" alt="Subito app" style="
-    width:50%;
-    max-width:800px;
+    width:68%;
+    max-width:1080px;
     display:block;
     margin:0 auto;
     position:relative;
@@ -772,8 +812,8 @@
   <img src="assets/time_pb.webp" style="
     position:absolute;
     top:15%;
-    right:calc(50% - 340px);
-    width:240px;
+    right:calc(49% - 408px);
+    width:350px;
     z-index:2;
     pointer-events:none;
     filter:drop-shadow(0 8px 24px rgba(0,0,0,0.5));
@@ -783,8 +823,8 @@
     position:absolute;
     bottom:unset;
     top:28%;
-    left:calc(50% - 320px);
-    width:180px;
+    left:calc(47% - 384px);
+    width:170px;
     z-index:2;
     pointer-events:none;
     filter:drop-shadow(0 8px 24px rgba(0,0,0,0.5));
@@ -792,20 +832,21 @@
     animation-delay:0.7s;
   ">
 
-  <!-- Layer 4: black fade at bottom — only fades the very bottom edge -->
+
+</div>
+    </div>
+
+  <!-- Black fade at bottom — full-width overlay outside phone wrapper -->
   <div style="
     position:absolute;
     bottom:0;
     left:0;
     right:0;
-    height:80px;
+    height:120px;
     background:linear-gradient(to bottom, transparent, #0F0F14);
-    z-index:3;
+    z-index:10;
     pointer-events:none;
   "></div>
-
-</div>
-    </div>
   </section>
 
   <!-- SECTION: FAQ -->
@@ -922,13 +963,20 @@
     // 3. FAQ ACCORDION
     function toggleFaq(btn) {
       const item = btn.closest('.faq-item');
+      const answer = item.querySelector('.faq-answer');
       const isOpen = item.classList.contains('open');
+
       if (isOpen) {
+        answer.style.height = answer.scrollHeight + 'px';
+        answer.offsetHeight; // force reflow
+        answer.style.height = '0';
         item.classList.remove('open');
-        btn.querySelector('.faq-icon').textContent = '+';
       } else {
         item.classList.add('open');
-        btn.querySelector('.faq-icon').textContent = '×';
+        answer.style.height = answer.scrollHeight + 'px';
+        answer.addEventListener('transitionend', () => {
+          answer.style.height = 'auto';
+        }, { once: true });
       }
     }
 
