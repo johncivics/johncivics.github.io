@@ -59,59 +59,6 @@
     }
 
     /* =============================================
-       NAV
-    ============================================= */
-    #nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 64px;
-      z-index: 100;
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      background: transparent;
-      border-bottom: 1px solid rgba(123,47,255,0.15);
-      transition: background 0.3s ease, border-color 0.3s ease;
-    }
-    #nav.scrolled {
-      background: rgba(15, 15, 20, 0.9);
-      border-bottom-color: var(--border);
-    }
-    .nav-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 100%;
-      padding: 0 40px;
-    }
-    .nav-logo {
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--text);
-      text-decoration: none;
-      text-shadow: 0 0 20px rgba(123,47,255,0.4);
-    }
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      background: var(--violet);
-      color: #fff;
-      border: none;
-      border-radius: 100px;
-      padding: 10px 22px;
-      font-size: 14px;
-      font-weight: 500;
-      font-family: inherit;
-      text-decoration: none;
-      cursor: pointer;
-      transition: opacity 0.2s ease;
-    }
-    .btn-primary:hover {
-      opacity: 0.85;
-    }
-
-    /* =============================================
        HERO
     ============================================= */
     #hero {
@@ -122,7 +69,7 @@
       align-items: center;
       justify-content: flex-start;
       text-align: center;
-      padding: 120px 24px 80px;
+      padding: 60px 24px 80px;
       overflow: visible;
     }
     .hero-glow {
@@ -164,9 +111,9 @@
       animation: pulse 2s ease-in-out infinite;
     }
     #hero h1 {
-      font-size: clamp(52px, 8vw, 88px);
+      font-size: clamp(32px, 4.5vw, 52px);
       font-weight: 800;
-      letter-spacing: -0.03em;
+      letter-spacing: -0.02em;
       line-height: 1.05;
       color: #ffffff;
       text-align: center;
@@ -175,7 +122,7 @@
     }
     .hero-sub {
       font-size: 18px;
-      color: var(--muted);
+      color: #FFFFFF;
       max-width: 560px;
       margin: 20px auto 0;
       font-weight: 400;
@@ -339,12 +286,14 @@
       letter-spacing: -0.02em;
       margin-bottom: 8px;
       color: #FFFFFF;
+      text-align: center;
     }
     .faq-subtitle {
       font-size: 17px;
       color: #FFFFFF;
       margin-bottom: 40px;
       font-weight: 400;
+      text-align: center;
     }
     .faq-item {
       border-bottom: none;
@@ -519,9 +468,6 @@
        MOBILE
     ============================================= */
     @media (max-width: 640px) {
-      .nav-inner {
-        padding: 0 20px;
-      }
       .waitlist-form input[type="email"] {
         width: 100%;
       }
@@ -611,9 +557,6 @@
     }
 
     @media (max-width: 768px) {
-
-      /* NAV */
-      .nav-inner { padding: 0 20px; }
 
       /* HERO */
       #hero { padding: 100px 20px 60px; }
@@ -724,13 +667,6 @@
 </head>
 <body>
 
-  <!-- SECTION: Nav -->
-  <nav id="nav">
-    <div class="nav-inner">
-      <a href="/" class="nav-logo">Subito</a>
-    </div>
-  </nav>
-
   <!-- SECTION: Hero -->
   <section id="hero">
     <img src="assets/gradient-black1.webp" style="
@@ -765,7 +701,7 @@
           align-items:center;
           background:#ffffff;
           border-radius:100px;
-          padding:6px 6px 6px 20px;
+          padding:8px 8px 8px 24px;
           margin-top:36px;
           gap:0;
           box-shadow:0 4px 24px rgba(0,0,0,0.3);
@@ -782,7 +718,7 @@
               outline:none;
               font-size:15px;
               color:#111111;
-              width:240px;
+              width:260px;
               font-family:inherit;
             "
           >
@@ -824,8 +760,10 @@
 
   <!-- Layer 2: phone — sits above purple -->
   <img src="assets/phone.webp" alt="Subito app" style="
-    width:100%;
+    width:50%;
+    max-width:800px;
     display:block;
+    margin:0 auto;
     position:relative;
     z-index:1;
   ">
@@ -833,9 +771,9 @@
   <!-- Layer 3: floating cards — sit above phone -->
   <img src="assets/time_pb.webp" style="
     position:absolute;
-    top:22%;
-    right:calc(29% - 400px);
-    width:530px;
+    top:15%;
+    right:calc(50% - 340px);
+    width:240px;
     z-index:2;
     pointer-events:none;
     filter:drop-shadow(0 8px 24px rgba(0,0,0,0.5));
@@ -843,9 +781,10 @@
   ">
   <img src="assets/time.webp" style="
     position:absolute;
-    bottom:25%;
-    left:calc(38% - 380px);
-    width:300px;
+    bottom:unset;
+    top:28%;
+    left:calc(50% - 320px);
+    width:180px;
     z-index:2;
     pointer-events:none;
     filter:drop-shadow(0 8px 24px rgba(0,0,0,0.5));
@@ -859,7 +798,7 @@
     bottom:0;
     left:0;
     right:0;
-    height:180px;
+    height:80px;
     background:linear-gradient(to bottom, transparent, #0F0F14);
     z-index:3;
     pointer-events:none;
@@ -868,8 +807,6 @@
 </div>
     </div>
   </section>
-
-  <div style="width:100%;height:1px;background:linear-gradient(to right,transparent,rgba(123,47,255,0.5),rgba(169,111,255,0.3),transparent);margin:0;"></div>
 
   <!-- SECTION: FAQ -->
   <section id="faq" style="position:relative;">
@@ -971,12 +908,6 @@
   </footer>
 
   <script>
-    // 1. NAV SCROLL EFFECT
-    const nav = document.getElementById('nav');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 50);
-    });
-
     // 2. SCROLL REVEAL
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry, i) => {
@@ -992,11 +923,10 @@
     function toggleFaq(btn) {
       const item = btn.closest('.faq-item');
       const isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item.open').forEach(i => {
-        i.classList.remove('open');
-        i.querySelector('.faq-icon').textContent = '+';
-      });
-      if (!isOpen) {
+      if (isOpen) {
+        item.classList.remove('open');
+        btn.querySelector('.faq-icon').textContent = '+';
+      } else {
         item.classList.add('open');
         btn.querySelector('.faq-icon').textContent = '×';
       }
