@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Subito — Practice more. Play better.</title>
+  <title>Subito: Practice more. Play better.</title>
 
   <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="icon" href="assets/Favicon.webp" />
 
   <!-- OG Meta Tags -->
   <meta property="og:title" content="Subito — Practice more. Play better." />
@@ -670,6 +670,35 @@
         flex-wrap: wrap;
         gap: 16px;
       }
+
+      /* Form pill — break into stacked layout on mobile */
+      div[style*="display:inline-flex"][style*="background:#ffffff"],
+      div[style*="display:inline-flex"][style*="background: #ffffff"] {
+        flex-direction: column !important;
+        border-radius: 16px !important;
+        padding: 12px !important;
+        width: calc(100% - 40px) !important;
+        max-width: 340px !important;
+        align-items: stretch !important;
+      }
+
+      /* Email input full width on mobile */
+      div[style*="display:inline-flex"] input[type="email"] {
+        width: 100% !important;
+        text-align: left !important;
+        padding: 12px 16px !important;
+        border-bottom: 1px solid #e0e0e0 !important;
+        border-radius: 8px 8px 0 0 !important;
+      }
+
+      /* Button full width and separated on mobile */
+      div[style*="display:inline-flex"] button {
+        width: 100% !important;
+        border-radius: 10px !important;
+        padding: 14px !important;
+        margin-top: 8px !important;
+        text-align: center !important;
+      }
     }
 
     /* THANKS PAGE MOBILE */
@@ -879,8 +908,9 @@
           </button>
           <div class="faq-answer">
             <p>
-              We're submitting to the App Store in the coming weeks. Sign up and
-              you'll be the first to know the moment it's live.
+              The app is almost built, which means we are in the final
+              testing phase before App Store submission. Sign up and you'll be the
+              first to know when it drops.
             </p>
           </div>
         </div>
@@ -892,22 +922,9 @@
           </button>
           <div class="faq-answer">
             <p>
-              Yes. The core app is completely free — session logging, metronome,
+              Yes, Subito is completely free: session logging, metronome,
               repertoire tracker, and the social feed. A Pro tier with advanced
               features is available for $9.99/month.
-            </p>
-          </div>
-        </div>
-
-        <div class="faq-item reveal">
-          <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
-            What instruments does Subito support?
-            <span class="faq-icon" aria-hidden="true">+</span>
-          </button>
-          <div class="faq-answer">
-            <p>
-              All of them. Whether you play piano, guitar, violin, trumpet, or
-              anything else — if you practice it, you can log it.
             </p>
           </div>
         </div>
@@ -919,8 +936,25 @@
           </button>
           <div class="faq-answer">
             <p>
-              iOS launches first. Android follows shortly after. Get early access
-              and we'll let you know as soon as your platform is ready.
+              iOS will launch first, and then we will start working on
+              Android. Sign up for early access and we'll let you know as soon as
+              each platform is ready.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+            Does Subito work for band/ensemble practice?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Yes, that's actually one of our favourite parts of the
+              app. You can create an Ensemble, invite your bandmates, and see each
+              other's practice sessions in a shared feed. There are also challenges
+              that you can create for an Ensemble if you want to compete on who
+              practiced the most that week.
             </p>
           </div>
         </div>
@@ -937,8 +971,8 @@
     <div class="footer-inner">
       <a href="/" class="footer-logo">Subito</a>
       <nav class="footer-links" aria-label="Footer navigation">
-        <a href="/privacy.txt" download>Privacy</a>
-        <a href="/terms.txt" download>Terms</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
         <a href="mailto:support@subitoapp.ca">support@subitoapp.ca</a>
       </nav>
     </div>
